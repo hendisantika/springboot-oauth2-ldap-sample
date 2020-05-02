@@ -11,6 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.approval.TokenStoreUserApprovalHandler;
+import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
  * Created by IntelliJ IDEA.
@@ -59,4 +62,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().httpBasic()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
+
+    @Bean
+    @Autowired
+    public TokenStoreUserApprovalHandler userApprovalHandler(TokenStore tokenStore) {
+        TokenStoreUserApprovalHandler handler = new TokenStoreUserApprovalHandler();
+        handler.setTokenStore(tokenStore);
+        handler.setRequestFactory(new DefaultOAuth2RequestFactory(clientDetailsService));
+        handler.setClientDetailsService(clientDetailsService);
+        return handler;
+    }
+
 }
