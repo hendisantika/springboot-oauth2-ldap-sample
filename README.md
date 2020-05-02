@@ -15,6 +15,11 @@ curl --location --request POST 'http://localhost:8080/auth/oauth/token' \
 --data-urlencode 'grant_type=password'
 ```
 
+Get Access API
+```shell script
+curl --location --request GET 'http://localhost:8080/auth/user/principal?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODg0NjA2OTgsInVzZXJfbmFtZSI6Im5hcnV0byIsImp0aSI6IjU1MmFhNWIzLWFjYjItNDIwYy1iODVmLTY0YWFjYTg2ZDI3MSIsImNsaWVudF9pZCI6Im5hcnV0by1jbGllbnQiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.rB2DvW7NnNa1ff2FBtPyarNjLskJxCN0ASn_sWbQIRI'
+```
+
 ### Screen shot
 
 Add Header Authorization
@@ -24,3 +29,7 @@ Add Header Authorization
 Add Body Params
 
 ![Add Body Params](img/body.png "Add Body Params")
+
+Get Access API
+
+![Get Access API](img/access.png "Get Access API")
