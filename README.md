@@ -14,3 +14,13 @@ curl --location --request POST 'http://localhost:8080/auth/oauth/token' \
 --data-urlencode 'password=123' \
 --data-urlencode 'grant_type=password'
 ```
+
+### Screen shot
+
+Add Header Authorization
+
+![Add Header Authorization](img/auth.png "Add Header Authorization")
+
+Add Body Params
+
+![Add Body Params](img/body.png "Add Body Params")
