@@ -42,8 +42,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("henry")
-                .secret(passwordEncoder.encode("secret"))
+        clients.inMemory().withClient("naruto-client")
+                .secret(passwordEncoder.encode("naruto-secret"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
                 .accessTokenValiditySeconds(3600)
